@@ -1,0 +1,33 @@
+// Variables
+$website-width: 1280px;
+$primary-color: #ffbc00;
+$light-color: #f4f4f4;
+$dark-color: #333;
+$medium-color: #ccc;
+$bg-image: url("../img/showcase.jpg");
+
+@mixin transColor {
+  transition: all 0.5s linear 0.15s;
+}
+
+@function gradient($color) {
+  $bg-linear: linear-gradient(
+    to bottom,
+    rgba($color, 0.9),
+    rgba($color, 0.6),
+    rgba($color, 0.1)
+  );
+  @return $bg-linear;
+}
+
+@function set-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return #000;
+  } @else {
+    @return #fff;
+  }
+}
+
+@function set-border($border-color) {
+  @return ($border-color 1px solid);
+}
