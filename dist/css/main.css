@@ -73,14 +73,14 @@ ul {
 
 #about .stats {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(autofit, minmax(100px, 2fr));
   gap: 1rem;
   align-items: center;
 }
 
 #contact .contact-info {
   display: grid;
-  grid-template-columns: repeat(autofit, minmax(150px, 1fr));
+  grid-template-columns: repeat(autofit, minmax(100px, 2fr));
   gap: 1rem;
   align-items: stretch;
 }
@@ -269,5 +269,16 @@ ul {
 @media (max-width: 567px) {
   .items {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-height: 550px) {
+  #home {
+    height: 550px;
+  }
+
+  #home .col-sm-12,
+  #home .col-sm-0 {
+    height: 550px;
   }
 }
