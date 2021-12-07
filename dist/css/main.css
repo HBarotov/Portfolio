@@ -6,14 +6,21 @@ html {
   overflow-x: hidden !important;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
+  height: 100%;
   background: #f4f4f4;
   color: var(--dark-color);
   line-height: 1.6;
   font-family: 'Raleway', sans-serif;
   font-size: 18px;
-  overflow-x: hidden !important;
   position: relative;
+  overflow-x: hidden !important;
 }
 
 h1,
@@ -30,6 +37,80 @@ a {
 ul {
   list-style: none;
   padding-left: 1rem !important;
+}
+
+/* Loader */
+
+.loader {
+  background-color: black;
+  display: block;
+  opacity: 1;
+  transition: all 1.5s 1s ease-in;
+}
+
+.center {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.ring {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  animation: ring 2s linear 1s infinite;
+}
+
+@keyframes ring {
+  0% {
+    transform: rotate(0deg);
+    box-shadow: 1px 5px 2px #005b8f;
+  }
+
+  50% {
+    transform: rotate(180deg);
+    box-shadow: 1px 5px 2px #005b8f;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    box-shadow: 1px 5px 2px #005b8f;
+  }
+}
+
+.ring::before {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+}
+
+.ring-text {
+  color: #fff;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 200px;
+  animation: text 4s ease-in-out 1s infinite;
+}
+
+@keyframes text {
+  50% {
+    color: black;
+  }
+}
+
+.main {
+  opacity: 0;
+  display: none;
+  transition: opacity 1.5s ease-in;
 }
 
 #main-nav {
@@ -69,20 +150,6 @@ ul {
 #about img {
   border-radius: 50%;
   width: 70%;
-}
-
-#about .stats {
-  display: grid;
-  grid-template-columns: repeat(autofit, minmax(100px, 2fr));
-  gap: 1rem;
-  align-items: center;
-}
-
-#contact .contact-info {
-  display: grid;
-  grid-template-columns: repeat(autofit, minmax(100px, 2fr));
-  gap: 1rem;
-  align-items: stretch;
 }
 
 #contact #github {
